@@ -6,7 +6,6 @@ audio=yes # set no if do not want to use pipewire audio server
 extra_pkg=yes # set no if do not want to install the extra packages
 nm=yes # set no if do not want to use network-manager for network interface management
 nano_config=yes # set no if do not want to configure nano text editor
-autostart_sway=yes # set no to not autostart swaywm once TUI
 
 install () {
 	# install swaywm and other packages
@@ -17,7 +16,7 @@ install () {
 	# copy my i3 configuration
 	if [[ $my_i3wm_config == "yes" ]]; then
 		if [[ -d $HOME/.config/i3 ]]; then mv $HOME/.config/i3 $HOME/.config/i3_`date +%Y_%d_%m_%H_%M_%S`; fi
-		mkdir -p $HOME/{Documents,Downloads,Music,Pictures,Videos}
+		#mkdir -p $HOME/{Documents,Downloads,Music,Pictures,Videos}
 		mkdir -p $HOME/.config/{i3,i3status}
 		cp -r ./config/i3/* $HOME/.config/i3/
         cp -r ./config/i3status/* $HOME/.config/i3status/

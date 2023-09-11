@@ -1,0 +1,14 @@
+#
+# Pulseaudio Utility Audio keybinds. Change to use XF86Audio keybind if multimedia keyboard
+#
+# +5% increase default audio level
+bindsym $mod+Shift+Prior exec $HOME/.config/i3/scripts/pactl_increase_vol.sh +5%
+#bindsym XF86AudioRaiseVolume exec $HOME/.config/i3/scripts/pactl_increase_vol.sh +5%
+# -5% reduce default audio level
+bindsym $mod+Shift+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# toggle mute or unmute default audio
+bindsym $mod+Shift+End exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# toggle mute or unmute default mic
+#bindsym XF86AudioMicMute exec pactl set-sink-mute @DEFAULT_SOURCE@ toggle

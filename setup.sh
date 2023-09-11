@@ -17,7 +17,7 @@ install () {
 	# copy my i3 configuration
 	if [[ $my_i3wm_config == "yes" ]]; then
 		if [[ -d $HOME/.config/i3 ]]; then mv $HOME/.config/i3 $HOME/.config/i3_`date +%Y_%d_%m_%H_%M_%S`; fi
-		mkdir -p $HOME/{Documents,Downloads,Music,Pictures,Videos}
+		#mkdir -p $HOME/{Documents,Downloads,Music,Pictures,Videos}
 		mkdir -p $HOME/.config/i3
 		cp -r ./config/i3/* $HOME/.config/i3/
 		chmod +x $HOME/.config/i3/scripts/*.sh

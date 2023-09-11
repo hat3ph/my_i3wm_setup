@@ -36,7 +36,7 @@ set $menu dmenu_path | $HOME/.config/i3/scripts/my_dmenu.sh | xargs i3-msg exec 
 set $ws1 "1:Terminal"
 set $ws2 "2:Work"
 set $ws3 "3:Web"
-set $ws4 "4"
+set $ws4 "4:Thunar"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"

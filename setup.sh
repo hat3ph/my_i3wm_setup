@@ -10,8 +10,9 @@ nano_config=yes # set no if do not want to configure nano text editor
 install () {
 	# install swaywm and other packages
 	sudo apt-get update && sudo apt-get upgrade -y
-	sudo sudo apt-get install i3 suckless-tools xorg xinit feh lxappearance papirus-icon-theme fonts-font-awesome fonts-noto-color-emoji \
-        lxappearance qt5ct xdg-utils xdg-user-dirs policykit-1 libnotify-bin dunst nano less iputils-ping -y
+	sudo sudo apt-get install i3 suckless-tools xorg xinit feh lxappearance papirus-icon-theme fonts-font-awesome \
+		fonts-noto-color-emoji lxappearance qt5ct xdg-utils xdg-user-dirs policykit-1 libnotify-bin dunst nano less \
+		iputils-ping software-properties-gtk -y
 
 	# copy my i3 configuration
 	if [[ $my_i3wm_config == "yes" ]]; then

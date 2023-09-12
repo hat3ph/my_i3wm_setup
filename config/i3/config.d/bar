@@ -2,7 +2,11 @@
 # finds out, if available)
 bar {
         #status_command i3status
-        status_command $HOME/.config/i3/scripts/i3bar.sh
+
+        # my custom i3bar
+        #status_command $HOME/.config/i3/scripts/i3bar1.sh
+        status_command while i3status | $HOME/.config/i3/scripts/i3bar.sh; do sleep 1; done
+
         position top
         #colors {
         #        background $bgcolor

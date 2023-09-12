@@ -14,10 +14,10 @@ case "$choice" in
   0) i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' \
     -B 'Yes, exit i3' 'i3-msg exit' & ;;
   1) i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown your system? This will shutdown your system.' \
-    -B 'Yes, systemctl poweroff' 'i3-msg exit' & ;;
+    -B 'Yes, poweroff my system' 'systemctl poweroff' & ;;
   2) i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot your system? This will reboot your system.' \
-    -B 'Yes, systemctl reboot' 'i3-msg exit' & ;;
+    -B 'Yes, reboot my system' 'systemctl reboot' & ;;
   i3-nagbar -t warning -m 'You pressed the suspend shortcut. Do you really want to suspend your system? This will suspend your system.' \
-    -B 'Yes, systemctl suspend' 'i3-msg exit' & ;;
+    -B 'Yes, suspend my system' 'systemctl suspend' & ;;
   4) exit ;;
 esac

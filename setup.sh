@@ -71,7 +71,7 @@ install () {
 printf "\n"
 printf "Start installation!!!!!!!!!!!\n"
 printf "88888888888888888888888888888\n"
-printf "My Custom i3WM Config   : $my_swaywm_config\n"
+printf "My Custom i3WM Config   : $my_i3wm_config\n"
 printf "Pipewire Audio          : $audio\n"
 printf "Extra Packages          : $extra_pkg\n"
 printf "NetworkManager          : $nm\n"

@@ -1,7 +1,7 @@
 # Allocate applications to workspaces
-for_window [class="Geany"] move to workspace $ws2 focus
-for_window [class="Firefox-esr"] move to workspace $ws3 focus
-for_window [class="Thunar"] move to workspace $ws4 focus
+#for_window [class="Geany"] move to workspace $ws2 focus
+#for_window [class="Firefox-esr"] move to workspace $ws3 focus
+#for_window [class="Thunar"] move to workspace $ws4 focus
 
 # Set floating windows
 for_window [class="Lxappearance"] floating enable

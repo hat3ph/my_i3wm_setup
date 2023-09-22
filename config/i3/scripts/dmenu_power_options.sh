@@ -17,7 +17,7 @@ case "$choice" in
     -B 'Yes, poweroff my system' 'systemctl poweroff' & ;;
   2) i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot your system? This will reboot your system.' \
     -B 'Yes, reboot my system' 'systemctl reboot' & ;;
-  i3-nagbar -t warning -m 'You pressed the suspend shortcut. Do you really want to suspend your system? This will suspend your system.' \
+  3) i3-nagbar -t warning -m 'You pressed the suspend shortcut. Do you really want to suspend your system? This will suspend your system.' \
     -B 'Yes, suspend my system' 'systemctl suspend' & ;;
   4) exit ;;
 esac

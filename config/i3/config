@@ -24,7 +24,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+#tiling_drag modifier titlebar
 
 # Your preferred application launcher
 # Note: pass the final command to i3-msg so that the resulting window can be opened
@@ -33,10 +33,10 @@ set $menu dmenu_path | $HOME/.config/i3/scripts/my_dmenu.sh | xargs i3-msg exec 
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Terminal"
-set $ws2 "2:Work"
-set $ws3 "3:Web"
-set $ws4 "4:Thunar"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -45,8 +45,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 # default gaps
-gaps inner 1
-gaps outer 1
+#gaps inner 1
+#gaps outer 1
 
 # disable focus follow mouse
 focus_follows_mouse no

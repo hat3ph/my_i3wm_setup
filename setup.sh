@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # optional components installation
-my_i3wm_config=yes # set no if just want an empty swaywm setup
+my_i3wm_config=yes # set no if just want an empty i3wm setup
 audio=yes # set no if do not want to use pipewire audio server
 extra_pkg=yes # set no if do not want to install the extra packages
 nm=yes # set no if do not want to use network-manager for network interface management

@@ -11,7 +11,7 @@ install () {
 	# install swaywm and other packages
 	sudo apt-get update && sudo apt-get upgrade -y
 	sudo apt-get install i3 suckless-tools xorg xinit xterm feh lxappearance papirus-icon-theme fonts-font-awesome \
-		fonts-noto-color-emoji qt5ct xdg-utils xdg-user-dirs policykit-1 libnotify-bin dunst nano less \
+		fonts-noto-color-emoji xdg-utils xdg-user-dirs policykit-1 libnotify-bin dunst nano less \
 		iputils-ping software-properties-gtk policykit-1-gnome dex -y
 
 	# copy my i3 configuration
@@ -45,7 +45,7 @@ install () {
 	# optional to insstall the extra packages
 	if [[ $extra_pkg == "yes" ]]; then
 		sudo apt-get install thunar gvfs gvfs-backends thunar-archive-plugin thunar-media-tags-plugin avahi-daemon \
-			lximage-qt geany qpdfview -y
+			gpicview geany gv sddm -y
 	fi
 
 	# optional install NetworkManager

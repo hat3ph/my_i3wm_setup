@@ -81,7 +81,6 @@ install () {
 			sudo apt-get update && sudo apt-get install firefox -y
 		else
 			sudo apt-get install firefox-esr -y
-			sed -i 's/firefox/firefox-esr/g' $HOME/.icewm/{menu,toolbar}
 		fi
   	fi
 

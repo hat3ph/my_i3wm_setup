@@ -8,6 +8,7 @@ nm=yes # set no if do not want to use network-manager for network interface mana
 nano_config=yes # set no if do not want to configure nano text editor
 thunar=yes # set no if do not want to install thunar file manager
 firefox_deb=yes # install non snap firefox
+login_mgr=yes # install SDDM or LightDM login manager
 
 install () {
 	# install swaywm and other packages
@@ -84,6 +85,15 @@ install () {
 		fi
   	fi
 
+	# optional to install SDDM or LightDM login manager
+	if [[ $login_mgr == "yes"]]; then
+		if [[ -n "$(uname -a | grep Ubuntu)" ]]; then
+			sudo apt-get install sddm -y
+		else
+			sudo apt-get install lightdm lightdm-gtk-greeter-settings -y
+		fi
+	fi
+
 	# disable unused services
  	sudo systemctl disable systemd-networkd-wait-online.service
   	sudo systemctl disable multipathd.service
@@ -98,6 +108,7 @@ printf "Pipewire Audio          : $audio\n"
 printf "Thunar File Manager     : $thunar\n"
 printf "Firefox (non snap)      : $firefox_deb\n"
 printf "NetworkManager          : $nm\n"
+printf "Login Manager           : $login_mgr\n"
 printf "Nano's configuration    : $nano_config\n"
 printf "88888888888888888888888888888\n"
 

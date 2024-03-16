@@ -95,8 +95,10 @@ install () {
 	fi
 
 	# disable unused services
- 	sudo systemctl disable systemd-networkd-wait-online.service
-  	sudo systemctl disable multipathd.service
+ 	if [[ -n "$(uname -a | grep Ubuntu)" ]]; then
+ 		sudo systemctl disable systemd-networkd-wait-online.service
+  		sudo systemctl disable multipathd.service
+	fi
 
 }
 

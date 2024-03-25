@@ -16,7 +16,7 @@ install () {
 	sudo apt-get install i3 suckless-tools xorg xinit x11-utils rsyslog logrotate xterm feh lxappearance \
  		papirus-icon-theme fonts-font-awesome fonts-noto-color-emoji xdg-utils xdg-user-dirs policykit-1 \
    		libnotify-bin dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
-     		gpicview geany gv -y
+		gpicview geany gv flameshot -y
 
 	# copy my i3 configuration
 	if [[ $my_i3wm_config == "yes" ]]; then

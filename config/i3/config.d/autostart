@@ -1,6 +1,7 @@
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id dex --autostart
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -15,7 +16,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # manual start gnome polkit authentication agent due to the autostart .desktop file
 # do not include i3 in the OnlyShowIn entry
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # autostart dunst notification daemon
-exec --no-startup-id dunst
+#exec --no-startup-id dunst

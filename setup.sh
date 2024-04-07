@@ -1,22 +1,25 @@
 #!/bin/bash
 
 # optional components installation
+my_i3wm_install=yes # set no if don't want to install i3wm
 my_i3wm_config=yes # set no if just want an empty i3wm setup
 audio=yes # set no if do not want to use pipewire audio server
 extra_pkg=yes # set no if do not want to install the extra packages
 nm=yes # set no if do not want to use network-manager for network interface management
-nano_config=yes # set no if do not want to configure nano text editor
+nano_config=no # set no if do not want to configure nano text editor
 thunar=yes # set no if do not want to install thunar file manager
 firefox_deb=yes # install non snap firefox
 login_mgr=yes # install SDDM or LightDM login manager
 
 install () {
-	# install swaywm and other packages
-	sudo apt-get update && sudo apt-get upgrade -y
-	sudo apt-get install i3 suckless-tools xorg xinit x11-utils rsyslog logrotate xterm feh lxappearance \
- 		papirus-icon-theme fonts-font-awesome fonts-noto-color-emoji xdg-utils xdg-user-dirs policykit-1 \
-   		libnotify-bin dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
-		gpicview geany gv flameshot -y
+	# install i2wm and other packages
+	if [[ $my_i3wm_install == "yes" ]]; then
+		sudo apt-get update && sudo apt-get upgrade -y
+		sudo apt-get install i3 suckless-tools xorg xinit x11-utils rsyslog logrotate xterm feh lxappearance \
+			papirus-icon-theme fonts-font-awesome fonts-noto-color-emoji xdg-utils xdg-user-dirs policykit-1 \
+			libnotify-bin dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
+			gpicview geany gv flameshot -y
+	fi
 
 	# copy my i3 configuration
 	if [[ $my_i3wm_config == "yes" ]]; then
@@ -70,7 +73,7 @@ install () {
 	fi
 
 	# install firefox without snap
-    	# https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
+	# https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
 	if [[ $firefox_deb == "yes" ]]; then
 		if [[ -n "$(uname -a | grep Ubuntu)" ]]; then
 			sudo install -d -m 0755 /etc/apt/keyrings
@@ -87,7 +90,7 @@ install () {
   	fi
 
 	# optional to install SDDM or LightDM login manager
-	if [[ $login_mgr == "yes"]]; then
+	if [[ $login_mgr == "yes" ]]; then
 		if [[ -n "$(uname -a | grep Ubuntu)" ]]; then
 			sudo apt-get install sddm -y
 		else
@@ -106,6 +109,7 @@ install () {
 printf "\n"
 printf "Start installation!!!!!!!!!!!\n"
 printf "88888888888888888888888888888\n"
+printf "My i3WM Install         : $my_i3wm_install\n"
 printf "My Custom i3WM Config   : $my_i3wm_config\n"
 printf "Pipewire Audio          : $audio\n"
 printf "Thunar File Manager     : $thunar\n"

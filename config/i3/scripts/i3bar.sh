@@ -88,6 +88,9 @@ if [[ -d /sys/class/power_supply/BAT0 ]]; then
 	fi
 fi
 
+# add weather support, use format 1 or 3
+weather=`curl wttr.in/Ipoh?format=1`
+
 # output to swaybar
 echo $cpu_emoji $cpu_usage $cpu_temp $mem_emoji $mem_usage $net_emoji $net_info $battery_emoji $battery_status $battery_capacity \
 		$mic_emoji $mic_level $volume_emoji $volume_level $date_emoji $date_formatted

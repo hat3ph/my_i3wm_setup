@@ -19,6 +19,9 @@ install () {
 			papirus-icon-theme fonts-font-awesome fonts-noto-color-emoji xdg-utils xdg-user-dirs policykit-1 \
 			libnotify-bin dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
 			gpicview geany gv flameshot curl -y
+   		# enable acpid
+     		sudo apt-get install acpid -y
+       		sudo systemctl enable acpid
 	fi
 
 	# copy my i3 configuration
@@ -56,7 +59,7 @@ install () {
 
 	# optional install NetworkManager
 	if [[ $nm == yes ]]; then
-	sudo apt-get install network-manager -y
+		sudo apt-get install network-manager -y
 		if [[ -n "$(uname -a | grep Ubuntu)" ]]; then
 			for file in `find /etc/netplan/* -maxdepth 0 -type f -name *.yaml`; do
 				sudo mv $file $file.bak

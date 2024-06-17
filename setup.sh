@@ -20,8 +20,8 @@ install () {
 			libnotify-bin dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
 			gpicview geany gv flameshot curl -y
    		# enable acpid
-     		sudo apt-get install acpid -y
-       		sudo systemctl enable acpid
+     		#sudo apt-get install acpid -y
+       		#sudo systemctl enable acpid
 	fi
 
 	# copy my i3 configuration

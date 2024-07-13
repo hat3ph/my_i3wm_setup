@@ -17,7 +17,7 @@ install () {
 		sudo apt-get update && sudo apt-get upgrade -y
 		sudo apt-get install i3 suckless-tools xorg xinit x11-utils rsyslog logrotate xterm feh lxappearance \
 			papirus-icon-theme fonts-font-awesome fonts-noto-color-emoji xdg-utils xdg-user-dirs policykit-1 \
-			libnotify-bin dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
+			dunst nano less iputils-ping software-properties-gtk policykit-1-gnome dex \
 			gpicview geany gv flameshot curl -y
    		# enable acpid
      		#sudo apt-get install acpid -y
@@ -31,6 +31,12 @@ install () {
 		mkdir -p $HOME/.config/i3
 		cp -r ./config/i3/* $HOME/.config/i3/
 		chmod +x $HOME/.config/i3/scripts/*.sh
+
+		# customize dunst
+  		mkdir -p $HOME/.config
+    		cp -r /etc/xdg/dunst $HOME/.config/
+      		sed -i 's/Adwaita/"Adwaita, Papirus"/g' $HOME/.config/dunst/dunstrc
+      		sed -i 's/32/22/g' $HOME/.config/dunst/dunstrc
 	fi
 
 	# configure nano with line number

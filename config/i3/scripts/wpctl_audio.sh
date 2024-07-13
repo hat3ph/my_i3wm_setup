@@ -3,10 +3,16 @@
 audio_level=5
 notification_interval=3000
 
+# use notify-send from libnotify-bin package or dunstify from dunst package
+if command -v notify-send >&2; then
+	notification_cmd=notify-send
+else
+	notification_cmd=dunstify
+fi
+
 function send_notification() {
 	volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f 2 | awk '{printf "%2.0f%%\n", 100 * $1}')
-	#notify-send -t $notification_interval --icon=dialog-information "Audio Level $volume"
-	notify-send -t $notification_interval --icon=audio-speakers "Audio Level $volume"
+	$notification_cmd -t $notification_interval -i audio-speakers -u low -r "9993" -h int:value:"$volume" "Audio Level $volume"
 }
 
 case $1 in
@@ -25,9 +31,19 @@ mute)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 	# send audio muted notification if muted or send audio level notification if not muted
 	if [[ -n $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f 3 | sed 's/^.//;s/.$//') ]]; then
-		notify-send -t $notification_interval --icon=audio-volume-muted "Audio Muted"
+		$notification_cmd -t $notification_interval -i audio-volume-muted "Audio Muted"
 	else
 		send_notification up
+	fi
+	;;
+mic)
+	# toggle microphone to mute or un-mute
+	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+	# send notification if microphone is muted or un-muted
+	if [[ -n $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | cut -d ' ' -f 3 | sed 's/^.//;s/.$//') ]]; then
+		$notification_cmd -t $notification_interval -i audio-input-microphone-muted "Microphone Muted"
+	else
+		$notification_cmd -t $notification_interval -i audio-input-microphone "Microphone Un-Muted"
 	fi
 	;;
 esac
